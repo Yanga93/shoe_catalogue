@@ -4,10 +4,15 @@
 <head>
   <meta charset="utf-8">
   <title>shoe_catalogue</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
   <link rel="stylesheet" href="shoe_catalogue.css">
 </head>
 
 <body>
+  <!--create a template  -->
+  <script class="msgTemplate" type="text/handlebars-x">
+      We have{{ number_in stock }} {{color}} in stock.
+  </script>
   <div class="container">
     <h1>Shoe Catalogue</h1>
     <fieldset class="fieldsetImg">
@@ -18,7 +23,7 @@
         <div class="mySlides fade">
           <div class="numbertext">1 / 4</div>
           <img src="img/watson-black.jpg" style="width:100%"><br>
-          <div class="text">Shoes of rare distinction</div>
+          <div class="text">Shoes of rare distiEnction</div>
         </div>
 
         <!--Image 2 div starts here  -->
@@ -51,7 +56,40 @@
       <span class="dot"></span>
       <span class="dot"></span>
     </div>
+    <!--Dropdown and button  to search for item starts here  -->
+    <fieldset>
+      <legend class="legInstoreItem">Instore Items</legend>
+      <div class="dropdown container">
+        <!--dropdown for shoe colors  -->
+        <select class="shoeColors">
+        <option value="color">Shoe Colors</option>
+        <option value="colorBlack">Black</option>
+        <option value="colorBrown">Brown</option>
+        <option value="colorWhite">White</option>
+      </select>
+        <!--dropdown for shoe sizes  -->
+        <select class="shoeSizes">
+        <option value="size">Shoe Sizes</option>
+        <option value="Size6">Size 6</option>
+        <option value="Size7">Size 7</option>
+        <option value="Size8">Size 8</option>
+      </select>
+        <!--button to search items in store  -->
+        <button type="button" class="searchBtn">Search</button>
+    </fieldset>
+    </div>
+    <!--Textbox to add new items starts here   -->
+    <fieldset>
+      <div class="addItimes">
 
+      <legend class="legNewItems">Add New Items</legend>
+      <div class="textBox add">
+        <input type="text" class="textshoeColor" placeholder=" enter shoe color">
+        <input type="text" class="textshoeSize" placeholder=" enter shoe size">
+        <button type="button" class="buttonAdd">Add Item</button>
+      </div>
+    </fieldset>
+  </div>
   </div>
   <script src="shoe_catalogue.js" charset="utf-8"></script>
 </body>

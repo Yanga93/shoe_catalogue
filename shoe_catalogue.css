@@ -20,6 +20,20 @@ h1{
     margin-left: 20em;
     background-color: gray;
 }
+.legInstoreItem{
+    color: white;
+    text-align: center;
+}
+.dropdown {
+  text-align: center;
+}
+.legNewItems{
+    color: white;
+    text-align: center;
+}
+.textBox{
+  text-align: center;
+}
 *
 {
     box-sizing: border-box;

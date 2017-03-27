@@ -18,4 +18,16 @@ function showSlides() {
     dots[slideIndex-1].className += " active";
     setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
-// ======== slide function ends here ========= //
+
+// ===== global variables to search item ===== //
+var shoeColors = document.querySelector(".shoeColors");
+var shoeSizes = document.querySelector(".shoeSizes");
+var searchBtn = document.querySelector(".searchBtn")
+
+// ===== global variables to add item
+var textshoeColor = document.querySelector(".textshoeColor");
+var textshoeSize = document.querySelector(".textshoeSize");
+var buttonAdd = document.querySelector(".buttonAdd");
+
+//===== message will be displayed here === //
+var msgTemplate = document.querySelector(".msgTemplate");
