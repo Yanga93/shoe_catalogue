@@ -11,7 +11,25 @@
 <body>
   <!--create a template  -->
   <script class="msgTemplate" type="text/handlebars-x">
-      We have{{ number_in stock }} {{color}} in stock.
+  <h1>Stock Available </h1>
+<table align="center"style="width:75%;margin-left: 7em;">
+  <thead>
+      <th>Shoe Color</th>
+      <th>Shoe Size</th>
+      <th>Shoe Price</th>
+      <th>Quantity</th>
+  </thead>
+  <tbody>
+        {{#each shoes}}
+      <tr>
+          <td>{{this.color}}</td>
+          <td>{{size}}</td>
+          <td>{{price}}</td>
+          <td>{{in_stock}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
   </script>
   <div class="container">
     <h1>Shoe Catalogue</h1>
@@ -62,14 +80,16 @@
       <div class="dropdown container">
         <!--dropdown for shoe colors  -->
         <select class="shoeColors">
-        <option value="color">Shoe Colors</option>
+          <option value="color">Shoe Colors</option>
+        <option value="all">All</option>
         <option value="colorBlack">Black</option>
         <option value="colorBrown">Brown</option>
         <option value="colorWhite">White</option>
       </select>
         <!--dropdown for shoe sizes  -->
         <select class="shoeSizes">
-        <option value="size">Shoe Sizes</option>
+          <option value="size">Shoe Sizes</option>
+        <option value="all">All</option>
         <option value="Size6">Size 6</option>
         <option value="Size7">Size 7</option>
         <option value="Size8">Size 8</option>
@@ -79,19 +99,19 @@
     </fieldset>
     </div>
     <!--Textbox to add new items starts here   -->
-    <fieldset>
-      <div class="addItimes">
-
-      <legend class="legNewItems">Add New Items</legend>
-      <div class="textBox add">
-        <input type="text" class="textshoeColor" placeholder=" enter shoe color">
-        <input type="text" class="textshoeSize" placeholder=" enter shoe size">
-        <button type="button" class="buttonAdd">Add Item</button>
-      </div>
-    </fieldset>
+    <!-- <div class="addItimes">
+      <fieldset>
+        <legend class="legNewItems">Add New Items</legend>
+        <div class="textBox add">
+          <input type="text" class="textshoeColor" placeholder=" enter shoe color">
+          <input type="text" class="textshoeSize" placeholder=" enter shoe size">
+          <button type="button" class="buttonAdd">Add Item</button>
+        </div>
+      </fieldset>
+    </div> -->
   </div>
-  </div>
+  <div class="tableOutcome"></div>
   <script src="shoe_catalogue.js" charset="utf-8"></script>
 </body>
-8
+
 </html>
