@@ -16,13 +16,13 @@
   <thead>
       <th>Shoe Color</th>
       <th>Shoe Size</th>
-      <th>Shoe Price</th>
+      <th>Shoe Price (zar)</th>
       <th>Quantity</th>
   </thead>
   <tbody>
         {{#each shoes}}
       <tr>
-          <td>{{this.color}}</td>
+          <td>{{color}}</td>
           <td>{{size}}</td>
           <td>{{price}}</td>
           <td>{{in_stock}}</td>
@@ -41,7 +41,7 @@
         <div class="mySlides fade">
           <div class="numbertext">1 / 4</div>
           <img src="img/watson-black.jpg" style="width:100%"><br>
-          <div class="text">Shoes of rare distiEnction</div>
+          <div class="text">Shoes of rare distinction</div>
         </div>
 
         <!--Image 2 div starts here  -->
@@ -79,39 +79,42 @@
       <legend class="legInstoreItem">Instore Items</legend>
       <div class="dropdown container">
         <!--dropdown for shoe colors  -->
+        Shoe Colors:
         <select class="shoeColors">
-          <option value="color">Shoe Colors</option>
-        <option value="all">All</option>
-        <option value="colorBlack">Black</option>
-        <option value="colorBrown">Brown</option>
-        <option value="colorWhite">White</option>
+        <option value="All">All</option>
+        <option value="Black">Black</option>
+        <option value="Brown">Brown</option>
+        <option value="White">White</option>
       </select>
         <!--dropdown for shoe sizes  -->
+        Shoe Sizes:
         <select class="shoeSizes">
-          <option value="size">Shoe Sizes</option>
-        <option value="all">All</option>
-        <option value="Size6">Size 6</option>
-        <option value="Size7">Size 7</option>
-        <option value="Size8">Size 8</option>
+        <option value="All">All</option>
+        <option value="Size 6">Size 6</option>
+        <option value="Size 7">Size 7</option>
+        <option value="Size 8">Size 8</option>
       </select>
         <!--button to search items in store  -->
         <button type="button" class="searchBtn">Search</button>
     </fieldset>
     </div>
-    <!--Textbox to add new items starts here   -->
-    <!-- <div class="addItimes">
+    <!-- Textbox to add new items starts here   -->
+    <div class="addItimes">
       <fieldset>
         <legend class="legNewItems">Add New Items</legend>
         <div class="textBox add">
           <input type="text" class="textshoeColor" placeholder=" enter shoe color">
           <input type="text" class="textshoeSize" placeholder=" enter shoe size">
+          <input type="text" class="textshoePrice" palceholder=" enter shoe price">
+          <input type="text" class="textshoeQuantity" placeholder=" enter shoe quantity">
           <button type="button" class="buttonAdd">Add Item</button>
         </div>
       </fieldset>
-    </div> -->
+    </div>
   </div>
   <div class="tableOutcome"></div>
   <script src="shoe_catalogue.js" charset="utf-8"></script>
-</body>
+  <script src="animate.shoecatalogue.js" charset="utf-8"></script>
+  </body>
 
 </html>

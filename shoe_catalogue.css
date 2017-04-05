@@ -63,6 +63,9 @@ h1{
     color: white;
     text-align: center;
 }
+.searchBtn{
+  cursor: pointer;
+}
 .textBox{
   text-align: center;
 }
