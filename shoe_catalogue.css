@@ -31,7 +31,8 @@ td a {
 }
 body
 {
-    background-image: url('img/imgsky.jpg');
+    /*background-image: url('img/imgsky.jpg');*/
+    background-color: gray;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -63,7 +64,7 @@ h1{
     color: white;
     text-align: center;
 }
-.searchBtn{
+.searchBtn, .buttonAdd{
   cursor: pointer;
 }
 .textBox{

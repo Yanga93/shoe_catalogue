@@ -11,25 +11,25 @@
 <body>
   <!--create a template  -->
   <script class="msgTemplate" type="text/handlebars-x">
-  <h1>Stock Available </h1>
-<table align="center"style="width:75%;margin-left: 7em;">
-  <thead>
-      <th>Shoe Color</th>
-      <th>Shoe Size</th>
-      <th>Shoe Price (zar)</th>
-      <th>Quantity</th>
-  </thead>
-  <tbody>
+    <h1>Stock Available </h1>
+    <table align="center" style="width:75%;margin-left: 7em;">
+      <thead>
+        <th>Shoe Color</th>
+        <th>Shoe Size</th>
+        <th>Shoe Price (zar)</th>
+        <th>Quantity</th>
+      </thead>
+      <tbody>
         {{#each shoes}}
-      <tr>
+        <tr>
           <td>{{color}}</td>
           <td>{{size}}</td>
           <td>{{price}}</td>
           <td>{{in_stock}}</td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
   </script>
   <div class="container">
     <h1>Shoe Catalogue</h1>
@@ -80,7 +80,8 @@
       <div class="dropdown container">
         <!--dropdown for shoe colors  -->
         Shoe Colors:
-        <select class="shoeColors">
+        <select class="shoeColors" style="padding-left: 30px;
+    text-align: center;">
         <option value="All">All</option>
         <option value="Black">Black</option>
         <option value="Brown">Brown</option>
@@ -88,14 +89,17 @@
       </select>
         <!--dropdown for shoe sizes  -->
         Shoe Sizes:
-        <select class="shoeSizes">
+        <select class="shoeSizes" style="padding-left: 30px;
+    text-align: center;">
         <option value="All">All</option>
         <option value="6">Size 6</option>
         <option value="7">Size 7</option>
         <option value="8">Size 8</option>
       </select>
         <!--button to search items in store  -->
-        <button type="button" class="searchBtn">Search</button>
+        <button type="button" class="searchBtn" style="padding-left: 20px;
+    text-align: center;
+    padding-right: 20px;">Search</button>
     </fieldset>
     </div>
     <!-- Textbox to add new items starts here   -->
@@ -103,10 +107,13 @@
       <fieldset>
         <legend class="legNewItems">Add New Items</legend>
         <div class="textBox add">
-          <input type="text" class="textshoeColor" placeholder=" enter shoe color">
-          <input type="text" class="textshoeSize" placeholder=" enter shoe size">
-          <input type="text" class="textshoePrice" palceholder=" enter shoe price">
-          <input type="text" class="textshoeQuantity" placeholder=" enter shoe quantity">
+          <input type="text" class="textshoeColor" placeholder=" enter shoe color" style="text-transform: capitalize;"> Shoe Size:
+          <input type="number" class="textshoeSize" min="6" max="9" style="padding-left: 30px;
+    text-align: center;"> Price:
+          <input type="number" class="textshoePrice" step="50" min="300.00" max="1200" style="
+    text-align: center;"> Quantity:
+          <input type="number" class="textshoeQuantity" min="1" max="20" style="padding-left: 30px;
+    text-align: center;">
           <button type="button" class="buttonAdd">Add Item</button>
         </div>
       </fieldset>
@@ -115,6 +122,6 @@
   <div class="tableOutcome"></div>
   <script src="shoe_catalogue.js" charset="utf-8"></script>
   <script src="animate.shoecatalogue.js" charset="utf-8"></script>
-  </body>
+</body>
 
 </html>
