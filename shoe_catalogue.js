@@ -7,6 +7,9 @@ var buttonAdd = document.querySelector(".buttonAdd");
 var msgTemplate = document.querySelector(".msgTemplate").innerHTML;
 var combineTemp = Handlebars.compile(msgTemplate);
 
+var dropdownTemp = document.querySelector(".dropdownTemp").innerHTML;
+var compileDropdown = Handlebars.compile(dropdownTemp);
+
 
 var shoes = [{
     color: 'Black',
@@ -34,6 +37,7 @@ var shoes = [{
     size: '8',
   },
   {
+
     color: 'White',
     price: '550.00',
     in_stock: '3',
@@ -46,13 +50,23 @@ var shoes = [{
     size: '8',
   }
 ];
+var shoeColors = document.querySelector(".shoeColors");
+var shoeSizes = document.querySelector(".shoeColors");
+// create my funtion for dropdownTemp
+document.querySelector(".filterBtn").addEventListener("click", function(){
+
+  // document.querySelector(".displayDropdown").innerHTML = compileDropdown({
+  //   :
+  // });
+
+});
 // create my function here for stock
 document.querySelector(".searchBtn").addEventListener("click", function() {
 
   var shoeArray = [];
 
-  var currentShoeColor = shoeColors.value;
-  var currentShoeSize = shoeSizes.value;
+  var currentShoeColor = shoeColors;
+  var currentShoeSize = shoeSizes;
 
   //filter the data
   if (currentShoeColor === "All" && currentShoeSize === "All") {
@@ -67,15 +81,7 @@ document.querySelector(".searchBtn").addEventListener("click", function() {
       }
     }
   };
-  if (currentShoeColor === "All" && currentShoeSize !== "All") {
-    for (var i = 0; i < shoes.length; i++) {
-      var shoe = shoes[i];
-      if (shoe.size === currentShoeSize) {
-        shoeArray.push(shoe);
-      }
-    }
-  };
-  // output.innerHTML
+
   document.querySelector(".tableOutcome").innerHTML = combineTemp({
     shoes: shoeArray
   });

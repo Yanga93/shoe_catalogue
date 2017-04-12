@@ -5,11 +5,32 @@
   <meta charset="utf-8">
   <title>shoe_catalogue</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
-  <link rel="stylesheet" href="shoe_catalogue.css">
+  <link rel="stylesheet" href ="shoe_catalogue.css">
 </head>
 
 <body>
-  <!--create a template  -->
+  <!--create a template for dropdown  -->
+  <script class="dropdownTemp" type="text/handlebars-x">
+  <div class="field">
+          <label for="color">Colors</label>
+          <select class="shoeColors" class="colorFilter">
+          <option value="All">All</option>
+          {{#each color}}
+              <option>{{this}}</option>
+          {{/each}}
+          </select>
+      </div>
+      <div class="field">
+          <label for="size">Sizes</label>
+          <select class="shoeSizes" class="sizeFilter">
+          <option value="All">All</option>
+          {{#each size}}
+              <option>{{this}}</option>
+          {{/each}}
+          </select>
+      </div>
+        </script>
+  <!--create a template for table  -->
   <script class="msgTemplate" type="text/handlebars-x">
     <h1>Stock Available </h1>
     <table align="center" style="width:75%;margin-left: 7em;">
@@ -74,34 +95,19 @@
       <span class="dot"></span>
       <span class="dot"></span>
     </div>
-    <!--Dropdown and button  to search for item starts here  -->
+    <!-- Dropdown and button  to search for item starts here  -->
     <fieldset>
-      <legend class="legInstoreItem">Instore Items</legend>
-      <div class="dropdown container">
-        <!--dropdown for shoe colors  -->
-        Shoe Colors:
-        <select class="shoeColors" style="padding-left: 30px;
-    text-align: center;">
-        <option value="All">All</option>
-        <option value="Black">Black</option>
-        <option value="Brown">Brown</option>
-        <option value="White">White</option>
-      </select>
-        <!--dropdown for shoe sizes  -->
-        Shoe Sizes:
-        <select class="shoeSizes" style="padding-left: 30px;
-    text-align: center;">
-        <option value="All">All</option>
-        <option value="6">Size 6</option>
-        <option value="7">Size 7</option>
-        <option value="8">Size 8</option>
-      </select>
-        <!--button to search items in store  -->
+<div class="checkStock">
+      <div class="displayDropdown">The dropdown will be displayed here</div>
+      <button type="button" class="filterBtn" style="padding-left: 20px;
+      text-align: center;
+      padding-right: 20px;">Filter</button>
         <button type="button" class="searchBtn" style="padding-left: 20px;
     text-align: center;
     padding-right: 20px;">Search</button>
     </fieldset>
-    </div>
+</div>
+
     <!-- Textbox to add new items starts here   -->
     <div class="addItimes">
       <fieldset>
