@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -41,14 +42,14 @@
         <th>Quantity</th>
       </thead>
       <tbody>
-        {{#each shoes}}
+        {{#shoes}}
         <tr>
           <td>{{color}}</td>
           <td>{{size}}</td>
           <td>{{price}}</td>
           <td>{{in_stock}}</td>
         </tr>
-        {{/each}}
+        {{/shoes}}
       </tbody>
     </table>
   </script>
@@ -102,7 +103,7 @@
         <button type="button" class="filterBtn" style="padding-left: 20px;
       text-align: center;
       padding-right: 20px;">Filter</button>
-        <button type="button" class="searchBtn" style="padding-left: 20px;
+        <button type="button" class="stockBtn" style="padding-left: 20px;
     text-align: center;
     padding-right: 20px;">All Stock</button>
     </fieldset>

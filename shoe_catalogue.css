@@ -64,7 +64,7 @@ h1{
     color: white;
     text-align: center;
 }
-.searchBtn, .buttonAdd{
+.stockBtn, .buttonAdd, .filterBtn{
   cursor: pointer;
 }
 .textBox{
