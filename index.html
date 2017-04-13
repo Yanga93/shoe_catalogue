@@ -5,31 +5,31 @@
   <meta charset="utf-8">
   <title>shoe_catalogue</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
-  <link rel="stylesheet" href ="shoe_catalogue.css">
+  <link rel="stylesheet" href="shoe_catalogue.css">
 </head>
 
 <body>
   <!--create a template for dropdown  -->
   <script class="dropdownTemp" type="text/handlebars-x">
-  <div class="field">
-          <label for="color">Colors</label>
-          <select class="shoeColors" class="colorFilter">
+    <div class="field">
+      <label for="color">Colors:</label>
+      <select class="shoeColors" class="colorFilter">
           <option value="All">All</option>
           {{#each color}}
-              <option>{{this}}</option>
+              <option value="{{this}}">{{this}}</option>
           {{/each}}
           </select>
-      </div>
-      <div class="field">
-          <label for="size">Sizes</label>
-          <select class="shoeSizes" class="sizeFilter">
+    </div>
+    <div class="field">
+      <label for="size">Sizes:</label>
+      <select class="shoeSizes" class="sizeFilter">
           <option value="All">All</option>
           {{#each size}}
-              <option>{{this}}</option>
+              <option value="{{this}}">{{this}}</option>
           {{/each}}
           </select>
-      </div>
-        </script>
+    </div>
+  </script>
   <!--create a template for table  -->
   <script class="msgTemplate" type="text/handlebars-x">
     <h1>Stock Available </h1>
@@ -97,16 +97,16 @@
     </div>
     <!-- Dropdown and button  to search for item starts here  -->
     <fieldset>
-<div class="checkStock">
-      <div class="displayDropdown">The dropdown will be displayed here</div>
-      <button type="button" class="filterBtn" style="padding-left: 20px;
+      <div class="checkStock">
+        <div class="displayDropdown"></div>
+        <button type="button" class="filterBtn" style="padding-left: 20px;
       text-align: center;
       padding-right: 20px;">Filter</button>
         <button type="button" class="searchBtn" style="padding-left: 20px;
     text-align: center;
-    padding-right: 20px;">Search</button>
+    padding-right: 20px;">All Stock</button>
     </fieldset>
-</div>
+    </div>
 
     <!-- Textbox to add new items starts here   -->
     <div class="addItimes">
@@ -127,7 +127,7 @@
   </div>
   <div class="tableOutcome"></div>
   <script src="shoe_catalogue.js" charset="utf-8"></script>
-  <script src="animate.shoecatalogue.js" charset="utf-8"></script>
+  <!-- <script src="animate.shoecatalogue.js" charset="utf-8"></script> -->
 </body>
 
 </html>

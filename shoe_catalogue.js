@@ -4,11 +4,11 @@ var shoeSizes = document.querySelector(".shoeSizes");
 
 
 var buttonAdd = document.querySelector(".buttonAdd");
-var msgTemplate = document.querySelector(".msgTemplate").innerHTML;
-var combineTemp = Handlebars.compile(msgTemplate);
+var msgTemplate = document.querySelector(".msgTemplate");
+var combineTemp = Handlebars.compile(msgTemplate.innerHTML);
 
-var dropdownTemp = document.querySelector(".dropdownTemp").innerHTML;
-var compileDropdown = Handlebars.compile(dropdownTemp);
+var dropdownTemp = document.querySelector(".dropdownTemp");
+var compileDropdown = Handlebars.compile(dropdownTemp.innerHTML);
 
 
 var shoes = [{
@@ -52,12 +52,27 @@ var shoes = [{
 ];
 var shoeColors = document.querySelector(".shoeColors");
 var shoeSizes = document.querySelector(".shoeColors");
-// create my funtion for dropdownTemp
-document.querySelector(".filterBtn").addEventListener("click", function(){
+(function() {
+  var arrayColor = [];
+  var arraySize = [];
+  for (var i = 0; i < shoes.length; i++) {
+    var colorContainer = shoes[i].color;
+    var sizeContainer = shoes[i].size;
+    arrayColor.push(colorContainer);
+    arraySize.push(sizeContainer);
+  }
 
-  // document.querySelector(".displayDropdown").innerHTML = compileDropdown({
-  //   :
-  // });
+  document.querySelector(".displayDropdown").innerHTML = compileDropdown({
+    color: arrayColor,
+    size:arraySize
+  });
+})();
+
+
+// create my funtion for dropdownTemp
+document.querySelector(".filterBtn").addEventListener("click", function() {
+
+
 
 });
 // create my function here for stock
@@ -69,19 +84,19 @@ document.querySelector(".searchBtn").addEventListener("click", function() {
   var currentShoeSize = shoeSizes;
 
   //filter the data
-  if (currentShoeColor === "All" && currentShoeSize === "All") {
-    shoeArray = shoes;
-  } else {
-    for (var i = 0; i < shoes.length; i++) {
-      var shoe = shoes[i];
-      var colorMatches = (currentShoeColor === "All" || currentShoeColor === shoe.color);
-      var sizeMatches = (currentShoeSize === "All" || currentShoeSize === shoe.size);
-      if (colorMatches && sizeMatches) {
-        shoeArray.push(shoe);
-      }
-    }
-  };
-
+//   if (currentShoeColor === "All" && currentShoeSize === "All") {
+//     shoeArray = shoes;
+//   };
+//   else {
+//   for (var i = 0; i < shoes.length; i++) {
+//     var shoe = shoes[i];
+//     var colorMatches = (currentShoeColor === "All" || currentShoeColor === shoe.color);
+//     var sizeMatches = (currentShoeSize === "All" || currentShoeSize === shoe.size);
+//     if (colorMatches && sizeMatches) {
+//       shoeArray.push(shoe);
+//     }
+//   }
+// };
   document.querySelector(".tableOutcome").innerHTML = combineTemp({
     shoes: shoeArray
   });
@@ -90,14 +105,14 @@ document.querySelector(".searchBtn").addEventListener("click", function() {
 
 // Add new item function starts here
 buttonAdd.addEventListener('click', function() {
-      var newStock = shoes.push({
-      color: document.querySelector(".textshoeColor").value,
-      price: document.querySelector(".textshoePrice").value,
-      in_stock: document.querySelector(".textshoeQuantity").value,
-      size: document.querySelector(".textshoeSize").value
-    });
-    document.querySelector(".textshoeColor").value = ""
-    document.querySelector(".textshoePrice").value = ""
-    document.querySelector(".textshoeQuantity").value = ""
-    document.querySelector(".textshoeSize").value = ""
+  var newStock = shoes.push({
+    color: document.querySelector(".textshoeColor").value,
+    price: document.querySelector(".textshoePrice").value,
+    in_stock: document.querySelector(".textshoeQuantity").value,
+    size: document.querySelector(".textshoeSize").value
+  });
+  document.querySelector(".textshoeColor").value = ""
+  document.querySelector(".textshoePrice").value = ""
+  document.querySelector(".textshoeQuantity").value = ""
+  document.querySelector(".textshoeSize").value = ""
 });
