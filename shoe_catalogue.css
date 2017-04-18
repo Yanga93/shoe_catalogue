@@ -60,12 +60,24 @@ h1{
 .dropdown {
   text-align: center;
 }
-.legNewItems{
+.legNewItems, .legFilter{
     color: white;
     text-align: center;
 }
-.stockBtn, .buttonAdd, .filterBtn{
+.stockBtn, .buttonAdd,{
   cursor: pointer;
+}
+.checkStock{
+  text-align: center;
+}
+.shoeColors{
+  margin-left: 2em;
+}
+.filterBtn{
+  cursor: pointer;
+  margin-left: 4em;
+  margin-top: 1em;
+  margin-left: 86px;
 }
 .textBox{
   text-align: center;

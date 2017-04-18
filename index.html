@@ -12,18 +12,19 @@
 <body>
   <!--create a template for dropdown  -->
   <script class="dropdownTemp" type="text/handlebars-x">
-    <div class="field">
+    <div class="colorField">
       <label for="color">Colors:</label>
       <select class="shoeColors" class="colorFilter">
           <option value="All">All</option>
           {{#each color}}
               <option value="{{this}}">{{this}}</option>
           {{/each}}
-          </select>
+          </select> <br>
     </div>
-    <div class="field">
+    <br>
+    <div class="sizeField">
       <label for="size">Sizes:</label>
-      <select class="shoeSizes" class="sizeFilter">
+      <select class="shoeSizes" style="margin-left: 8px;">
           <option value="All">All</option>
           {{#each size}}
               <option value="{{this}}">{{this}}</option>
@@ -98,14 +99,14 @@
     </div>
     <!-- Dropdown and button  to search for item starts here  -->
     <fieldset>
+      <legend class="legFilter">Filter throw stock available</legend>
+      <br>
       <div class="checkStock">
         <div class="displayDropdown"></div>
         <button type="button" class="filterBtn" style="padding-left: 20px;
       text-align: center;
       padding-right: 20px;">Filter</button>
-        <button type="button" class="stockBtn" style="padding-left: 20px;
-    text-align: center;
-    padding-right: 20px;">All Stock</button>
+
     </fieldset>
     </div>
 

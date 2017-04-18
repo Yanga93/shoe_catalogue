@@ -1,10 +1,5 @@
-// ===== global variables to search item ===== //
-var shoeColors = document.querySelector(".shoeColors");
-var shoeSizes = document.querySelector(".shoeSizes");
-
-
-var buttonAdd = document.querySelector(".buttonAdd");
 var msgTemplate = document.querySelector(".msgTemplate");
+var buttonAdd = document.querySelector(".buttonAdd");
 var combineTemp = Handlebars.compile(msgTemplate.innerHTML);
 
 var dropdownTemp = document.querySelector(".dropdownTemp");
@@ -74,26 +69,64 @@ var shoes = [{
  *
  */
 document.querySelector(".filterBtn").addEventListener("click", function() {
+  // ===== local variables to filter throw stock Available ===== //
+  var shoeColors = document.querySelector(".shoeColors");
+  var shoeSizes = document.querySelector(".shoeSizes");
 
+  var shoeArray = [];
 
+  var currentShoeColor = shoeColors.value;
+  var currentShoeSize = shoeSizes.value;
 
-});
-// create my function here for stock
-document.querySelector(".stockBtn").addEventListener("click", function() {
+  //filter the data
+  if (currentShoeColor === "All" && currentShoeSize === "All") {
+    shoeArray = shoes;
+  } else {
+    for (var i = 0; i < shoes.length; i++) {
+      var shoe = shoes[i];
+      var colorMatches = (currentShoeColor === "All" || currentShoeColor === shoe.color);
+      var sizeMatches = (currentShoeSize === "All" || currentShoeSize === shoe.size);
+      if (colorMatches && sizeMatches) {
+        shoeArray.push(shoe);
+      }
+    }
+  };
+  if (currentShoeColor === "All" && currentShoeSize !== "All") {
+    for (var i = 0; i < shoes.length; i++) {
+      var shoe = shoes[i];
+      if (shoe.size === currentShoeSize) {
+        shoeArray.push(shoe);
+      }
+    }
+  };
+  // output.innerHTML
   document.querySelector(".tableOutcome").innerHTML = combineTemp({
-    shoes
+    shoes: shoeArray
   });
-  
+
+
 });
 
 // Add new item function starts here
 buttonAdd.addEventListener('click', function() {
-  var newStock = shoes.push({
-    color: document.querySelector(".textshoeColor").value,
-    price: document.querySelector(".textshoePrice").value,
-    in_stock: document.querySelector(".textshoeQuantity").value,
-    size: document.querySelector(".textshoeSize").value
-  });
+  var textshoeColor = document.querySelector(".textshoeColor").value;
+  var textshoeSize = document.querySelector(".textshoeSize").value;
+  var textshoePrice = document.querySelector(".textshoePrice").value;
+  var textshoeQuantity = document.querySelector(".textshoeQuantity").value;
+
+  if (textshoeColor !== "" &&
+    textshoePrice !== "" &&
+    textshoeQuantity !== "" &&
+    textshoeSize !== "") {
+
+    var newStock = shoes.push({
+      color: textshoeColor,
+      price: textshoePrice,
+      in_stock: textshoeQuantity,
+      size: textshoeSize
+    });
+  }
+
   document.querySelector(".textshoeColor").value = ""
   document.querySelector(".textshoePrice").value = ""
   document.querySelector(".textshoeQuantity").value = ""
