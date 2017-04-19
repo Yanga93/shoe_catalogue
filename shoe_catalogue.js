@@ -2,7 +2,8 @@ var msgTemplate = document.querySelector(".msgTemplate");
 var buttonAdd = document.querySelector(".buttonAdd");
 var combineTemp = Handlebars.compile(msgTemplate.innerHTML);
 
-var dropdownTemp = document.querySelector(".dropdownTemp");
+// var dropdownTemp = document.querySelector(".dropdownTemp");
+var dropdownTemp = document.getElementById('dropdownTemp');
 var compileDropdown = Handlebars.compile(dropdownTemp.innerHTML);
 
 
@@ -55,11 +56,12 @@ var shoes = [{
     arrayColor.push(colorContainer);
     arraySize.push(sizeContainer);
   }
-
-  document.querySelector(".displayDropdown").innerHTML = compileDropdown({
-    color: arrayColor,
+  var dropOutput = document.getElementById("displayDropdown");
+   var tempCompileDropdown = compileDropdown({
+    colour: arrayColor,
     size: arraySize
-  });
+  })
+  dropOutput.innerHTML= tempCompileDropdown
 })();
 
 
@@ -114,6 +116,10 @@ buttonAdd.addEventListener('click', function() {
   var textshoePrice = document.querySelector(".textshoePrice").value;
   var textshoeQuantity = document.querySelector(".textshoeQuantity").value;
 
+  var shoeColors = document.querySelector(".shoeColors").value;
+  var shoeSizes = document.querySelector(".shoeSizes").value;
+  var matchColorsandSizes = shoeColors && shoeSizes;
+
   if (textshoeColor !== "" &&
     textshoePrice !== "" &&
     textshoeQuantity !== "" &&
@@ -124,6 +130,7 @@ buttonAdd.addEventListener('click', function() {
       price: textshoePrice,
       in_stock: textshoeQuantity,
       size: textshoeSize
+
     });
   }
 
@@ -131,4 +138,25 @@ buttonAdd.addEventListener('click', function() {
   document.querySelector(".textshoePrice").value = ""
   document.querySelector(".textshoeQuantity").value = ""
   document.querySelector(".textshoeSize").value = ""
+
+  var displayDropdown = document.getElementById("displayDropdown");
+  var compileDropdown = Handlebars.compile(dropdownTemp.innerHTML);
+
+  (function() {
+    var arrayColor = [];
+    var arraySize = [];
+    for (var i = 0; i < shoes.length; i++) {
+      var colorContainer = shoes[i].color;
+      var sizeContainer = shoes[i].size;
+      arrayColor.push(colorContainer);
+      arraySize.push(sizeContainer);
+    }
+    var dropOutput = document.getElementById("displayDropdown");
+     var tempCompileDropdown = compileDropdown({
+      colour: arrayColor,
+      size: arraySize
+    })
+    dropOutput.innerHTML= tempCompileDropdown
+  })();
+  
 });

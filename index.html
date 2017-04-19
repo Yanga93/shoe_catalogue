@@ -11,12 +11,12 @@
 
 <body>
   <!--create a template for dropdown  -->
-  <script class="dropdownTemp" type="text/handlebars-x">
-    <div class="colorField">
+  <script id="dropdownTemp" type="text/handlebars-x">
+    <div id="colorField">
       <label for="color">Colors:</label>
-      <select class="shoeColors" class="colorFilter">
-          <option value="All">All</option>
-          {{#each color}}
+      <select class="shoeColors">
+          <option value="All" >All</option>
+          {{#each colour}}
               <option value="{{this}}">{{this}}</option>
           {{/each}}
           </select> <br>
@@ -102,7 +102,8 @@
       <legend class="legFilter">Filter throw stock available</legend>
       <br>
       <div class="checkStock">
-        <div class="displayDropdown"></div>
+        <!--displayDropdown here  -->
+        <div id="displayDropdown"></div>
         <button type="button" class="filterBtn" style="padding-left: 20px;
       text-align: center;
       padding-right: 20px;">Filter</button>
