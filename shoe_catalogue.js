@@ -3,8 +3,15 @@ var buttonAdd = document.querySelector(".buttonAdd");
 var combineTemp = Handlebars.compile(msgTemplate.innerHTML);
 
 // var dropdownTemp = document.querySelector(".dropdownTemp");
-var dropdownTemp = document.getElementById('dropdownTemp');
+var dropdownTemp = document.getElementById('color');
+var sizeDropdown = document.getElementById('size')
+
+var compileSize = Handlebars.compile(sizeDropdown.innerHTML);
 var compileDropdown = Handlebars.compile(dropdownTemp.innerHTML);
+
+var displayDropdown = document.getElementById("displayDropdown");
+var displayDropdown2 = document.getElementById("displayDropdown2");
+
 
 
 var shoes = [{
@@ -47,29 +54,7 @@ var shoes = [{
   }
 ];
 
-(function() {
-  var arrayColor = [];
-  var arraySize = [];
-  for (var i = 0; i < shoes.length; i++) {
-    var colorContainer = shoes[i].color;
-    var sizeContainer = shoes[i].size;
-    arrayColor.push(colorContainer);
-    arraySize.push(sizeContainer);
-  }
-  var dropOutput = document.getElementById("displayDropdown");
-   var tempCompileDropdown = compileDropdown({
-    colour: arrayColor,
-    size: arraySize
-  })
-  dropOutput.innerHTML= tempCompileDropdown
-})();
-
-
 // create my funtion for dropdownTemp
-
-/**
- *
- */
 document.querySelector(".filterBtn").addEventListener("click", function() {
   // ===== local variables to filter throw stock Available ===== //
   var shoeColors = document.querySelector(".shoeColors");
@@ -139,24 +124,47 @@ buttonAdd.addEventListener('click', function() {
   document.querySelector(".textshoeQuantity").value = ""
   document.querySelector(".textshoeSize").value = ""
 
-  var displayDropdown = document.getElementById("displayDropdown");
-  var compileDropdown = Handlebars.compile(dropdownTemp.innerHTML);
+updateDropdowns(shoes);
+});
+
+function updateDropdowns(shoes){
+
+  (function() {
+    // var arrayColor = [];
+    var sizeMap = {};
+    var arraySize = [];
+
+    for (var i = 0; i < shoes.length; i++) {
+      var sizeContainer = shoes[i].size;
+      if (sizeMap[sizeContainer] === undefined) {
+        sizeMap[sizeContainer] = sizeContainer;
+        arraySize.push(sizeContainer);
+      }
+    }
+    var dropOutput2 = document.getElementById("displayDropdown2");
+    var tempCompileDropdown = compileSize({size: arraySize})
+    dropOutput2.innerHTML = tempCompileDropdown
+  })();
 
   (function() {
     var arrayColor = [];
-    var arraySize = [];
+    var colorMap = {};
+
     for (var i = 0; i < shoes.length; i++) {
       var colorContainer = shoes[i].color;
-      var sizeContainer = shoes[i].size;
-      arrayColor.push(colorContainer);
-      arraySize.push(sizeContainer);
+      if (colorMap[colorContainer] === undefined) {
+        colorMap[colorContainer] = colorContainer;
+        arrayColor.push(colorContainer);
+      }
     }
     var dropOutput = document.getElementById("displayDropdown");
-     var tempCompileDropdown = compileDropdown({
+    var tempCompileDropdown = compileDropdown({
       colour: arrayColor,
-      size: arraySize
+
     })
-    dropOutput.innerHTML= tempCompileDropdown
+    dropOutput.innerHTML = tempCompileDropdown
   })();
-  
-});
+
+
+  };
+updateDropdowns(shoes);

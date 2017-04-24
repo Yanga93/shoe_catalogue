@@ -11,17 +11,20 @@
 
 <body>
   <!--create a template for dropdown  -->
-  <script id="dropdownTemp" type="text/handlebars-x">
+  <script id="color" type="text/handlebars-x">
     <div id="colorField">
       <label for="color">Colors:</label>
       <select class="shoeColors">
           <option value="All" >All</option>
-          {{#each colour}}
+          {{#colour}}
               <option value="{{this}}">{{this}}</option>
-          {{/each}}
+          {{/colour}}
           </select> <br>
     </div>
-    <br>
+<br>
+    </script>
+
+    <script id="size" type="text/handlebars-x">
     <div class="sizeField">
       <label for="size">Sizes:</label>
       <select class="shoeSizes" style="margin-left: 8px;">
@@ -104,6 +107,8 @@
       <div class="checkStock">
         <!--displayDropdown here  -->
         <div id="displayDropdown"></div>
+        <div id="displayDropdown2"></div>
+
         <button type="button" class="filterBtn" style="padding-left: 20px;
       text-align: center;
       padding-right: 20px;">Filter</button>
@@ -130,7 +135,7 @@
   </div>
   <div class="tableOutcome"></div>
   <script src="shoe_catalogue.js" charset="utf-8"></script>
-  <!-- <script src="animate.shoecatalogue.js" charset="utf-8"></script> -->
+  <script src="animate.shoecatalogue.js" charset="utf-8"></script>
 </body>
 
 </html>
